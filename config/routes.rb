@@ -1,4 +1,40 @@
 Rails.application.routes.draw do
+  get 'gifs/index'
+
+  get 'gifs/show'
+
+  get 'gifs/new'
+
+  get 'gifs/create'
+
+  get 'gifs/update'
+
+  get 'gifs/destroy'
+
+  get 'videos/index'
+
+  get 'videos/show'
+
+  get 'videos/new'
+
+  get 'videos/create'
+
+  get 'videos/update'
+
+  get 'videos/destroy'
+
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
