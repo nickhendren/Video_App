@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'users#index'
+
   get 'gifs/index'
 
   get 'gifs/show'
@@ -22,8 +24,6 @@ Rails.application.routes.draw do
   get 'videos/update'
 
   get 'videos/destroy'
-
-  get 'users/index'
 
   get 'users/show'
 
