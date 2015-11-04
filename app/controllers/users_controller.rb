@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+  @user = User.find(params[:id])
   end
 
   def new
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to '/'
+      redirect_to 'show'
     else
       render 'new'
     end
@@ -33,15 +33,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+    @user = User.find(params[:id])
+    if @user.destroy
+      redirect_to '/'
+    else
+      render 'show'
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:first_name, :last_name, :user_name, :email, :password)
   end
 
 end

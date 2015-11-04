@@ -2,41 +2,15 @@
 <html lang="en">
     <h1>Signing Up is Easier than ever!</h1>
     <p>Enter your information below</p>
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-4">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputFirstName3" class="col-sm-2 control-label">First Name</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputFirstName3" placeholder="First Name">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputLastName3" class="col-sm-2 control-label">Last Name</label>
-        <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputLastName3" placeholder="Last Name">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-4">
-          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputUser_name3" class="col-sm-2 control-label">Pick a Username</label>
-        <div class="col-sm-4">
-          <input type="user_name" class="form-control" id="inputUser_name3" placeholder="Username">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Sign Up</button>
-        </div>
-      </div>
-    </form>
+    
+  <%= bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-4") do |f| %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.email_field :email %>
+    <%= f.text_field :user_name %>
+    <%= f.password_field :password %>
+    <%= f.form_group do %>
+      <%= f.submit "Create New Account" %>
+    <% end %>
+  <% end %>
 </html>
