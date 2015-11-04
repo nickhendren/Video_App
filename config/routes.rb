@@ -1,40 +1,12 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  get 'gifs/index'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
 
-  get 'gifs/show'
+  get 'sessions/destroy'
 
-  get 'gifs/new'
-
-  get 'gifs/create'
-
-  get 'gifs/update'
-
-  get 'gifs/destroy'
-
-  get 'videos/index'
-
-  get 'videos/show'
-
-  get 'videos/new'
-
-  get 'videos/create'
-
-  get 'videos/update'
-
-  get 'videos/destroy'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/update'
-
-  get 'users/destroy'
-
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
