@@ -33,11 +33,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user.destroy
-      redirect_to '/'
-    else
-      render 'show'
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
     end
   end
 
