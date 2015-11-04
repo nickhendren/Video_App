@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy', as: :sessions
 
+   #get 'users/:id/edit' => 'users#edit', as: :edit_user
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
