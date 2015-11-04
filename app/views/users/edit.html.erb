@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <h1>Edit Your Account Information</h1>
-    <p>Enter your new information below</p>
+  <h1>Edit Your Account Information</h1>
+  <p>Enter your new information below</p>
 
-        <%= form_for @user, :html => {:class => "form-horizontal center"} do |f| %>
-        <div class="form-group">
-          <%= f.label :first_name, "First name:", class: "col-md-4 control-label" %>
-          <div class="col-md-4">
-          <%= f.text_field :first_name, class: "form-control" %>
-        </div>
+  <%= form_for @user, :html => {:class => "form-horizontal center"} do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
-      <div class="form-group">
-        <%= f.label :last_name, "Last name:", class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-          <%= f.text_field :last_name, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :email, "Email:", class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :password, "Password:", class: "col-md-4 control-label" %>
-        <div class="col-md-4">
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <%= f.submit "Update" %>
-      </div>
-        <% end %>
-        <button type="submit" class="btn btn-default"><%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
-        <p>Delete Your Profile</p>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :first_name, "First name:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+      <%= f.text_field :first_name, class: "form-control" %>
       </div>
     </div>
+    <div class="form-group">
+      <%= f.label :last_name, "Last name:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "Email:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "Password:", class: "col-md-4 control-label" %>
+      <div class="col-md-4">
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= f.submit "Update" %>
+    </div>
+  <% end %>
+    <button type="submit" class="btn btn-default"><%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+    <p>Delete Your Profile</p>
+    </div>
+  </div>
   </form>
 </html>
