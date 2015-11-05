@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+
+  get 'posts/index'
+
+  get 'posts/show'
+
+  get 'posts/new'
+
+  get 'posts/create'
+
   root 'users#index'
   resources :users
 
