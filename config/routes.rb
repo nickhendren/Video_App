@@ -1,20 +1,15 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'posts/new'
-
-  get 'posts/create'
-
   root 'users#index'
   resources :users
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy', as: :sessions
+
+  resources :posts , except: [:edit, :update, :destroy] do
+  resources :comments, only: :create
+  end
+  resources :users , except: [:edit, :update, :destroy]
 
    #get 'users/:id/edit' => 'users#edit', as: :edit_user
 

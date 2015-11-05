@@ -2,8 +2,8 @@
 <html lang="en">
     <h1>Signing Up is Easier than ever!</h1>
     <p>Enter your information below</p>
-    
-  <%= bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-4") do |f| %>
+
+  <%= form_for(@user, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-4") do |f| %>
     <%= f.text_field :first_name %>
     <%= f.text_field :last_name %>
     <%= f.email_field :email %>
