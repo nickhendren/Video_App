@@ -1,0 +1,24 @@
+<%= bootstrap_form_for(@post, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-4") do |f| %>
+  <% if @post.errors.any? %>
+  <div class="error_messages">
+    <h2>Form is invalid</h2>
+    <ul>
+      <% for message in @post.errors.full_messages %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title of Post" %>
+  </div>
+  <div class="field">
+    <%= f.label :media_url %>
+    <%= f.text_area :media_url, placeholder: "Media url MUST be a link to a YouTube video or GIF" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

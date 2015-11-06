@@ -1,0 +1,20 @@
+<% @posts.each do |post| %>
+<div class="row">
+  <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%= post.title %></h3>
+        <p><%= link_to post.media_url, post.media_url %></p>
+        <p><%= post.created_at %></p>
+        <p>Submitted by: <strong><% if post.user %>
+                <%= post.user.user_name %>
+                <%else %>
+                Anonymous User
+                <%end%></strong></p>
+
+        <p><%= link_to "Go to Post", post_path(post), class: "btn btn-primary" %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>

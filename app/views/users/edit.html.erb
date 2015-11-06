@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div class="row">
+    <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6">
+      <div class="thumbnail">
+        <div class="caption">
+          <h1>Edit Your Account Information</h1>
+          <p>Enter your new information below</p>
+
+          <%= form_for @user, :html => {:class => "form-horizontal center"} do |f| %>
+            <% if @user.errors.any? %>
+              <div class="error_messages">
+                <h2>Form is invalid</h2>
+                <ul>
+                  <% for message in @user.errors.full_messages %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="form-group">
+              <%= f.label :first_name, "First name:", class: "col-md-4 control-label" %>
+              <div class="col-md-4">
+              <%= f.text_field :first_name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :last_name, "Last name:", class: "col-md-4 control-label" %>
+              <div class="col-md-4">
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "Email:", class: "col-md-4 control-label" %>
+              <div class="col-md-4">
+                <%= f.email_field :email, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, "Password:", class: "col-md-4 control-label" %>
+              <div class="col-md-4">
+                <%= f.password_field :password, class: "form-control" %><br><%= f.submit "Update", class: "btn btn-primary"%><button type="submit" class="btn btn-danger"><%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+              </div>
+            </div>
+          <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

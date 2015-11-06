@@ -1,39 +1,17 @@
 Rails.application.routes.draw do
-  get 'gifs/index'
+  root 'users#index'
+  resources :users
 
-  get 'gifs/show'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy', as: :sessions
 
-  get 'gifs/new'
+  resources :posts , except: [:edit, :update, :destroy] do
+  resources :comments, only: :create
+  end
+  resources :users , except: [:edit, :update, :destroy]
 
-  get 'gifs/create'
-
-  get 'gifs/update'
-
-  get 'gifs/destroy'
-
-  get 'videos/index'
-
-  get 'videos/show'
-
-  get 'videos/new'
-
-  get 'videos/create'
-
-  get 'videos/update'
-
-  get 'videos/destroy'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/update'
-
-  get 'users/destroy'
+   #get 'users/:id/edit' => 'users#edit', as: :edit_user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
