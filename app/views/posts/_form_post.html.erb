@@ -12,11 +12,11 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Title of Post" %>
   </div>
   <div class="field">
     <%= f.label :media_url %>
-    <%= f.text_area :media_url %>
+    <%= f.text_area :media_url, placeholder: "Media url MUST be a link to a YouTube video" %>
   </div>
   <div class="actions">
     <%= f.submit %>

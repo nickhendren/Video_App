@@ -17,14 +17,14 @@
       <div class="thumbnail">
         <div class="caption">
           <h1><%= @post.title %><small> <%= @post.date_published %> </small></h1>
-          <p> <%= @post.media_url %></p>
+          <p><%= link_to @post.media_url, @post.media_url %></p>
           <% @post.comments.each do |comment| %>
           <ul class="list-group-item">
-            <strong><% if comment.user %>
+            <p>User: <strong><% if comment.user %>
                     <%= comment.user.user_name %>
                     <%else %>
                     Anonymous User
-                    <%end%></strong>
+                    <%end%></strong><p>
             <ul><%= comment.body %></ul>
           </ul>
           <%end%>

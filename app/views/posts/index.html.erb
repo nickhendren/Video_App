@@ -6,11 +6,11 @@
         <h3><%= post.title %></h3>
         <p><%= link_to post.media_url, post.media_url %></p>
         <p><%= post.created_at %></p>
-        <p> <% if post.user %>
+        <p>Submitted by: <strong><% if post.user %>
                 <%= post.user.user_name %>
                 <%else %>
                 Anonymous User
-                <%end%></p>
+                <%end%></strong></p>
 
         <p><%= link_to "Go to Post", post_path(post), class: "btn btn-primary" %></p>
       </div>
