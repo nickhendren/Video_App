@@ -1,27 +1,29 @@
-<div class="page-header">
+<div class="container">
   <h1><%= @post.title %><small> <%= @post.date_published %> </small></h1>
-</div>
+
   <p> <%= @post.media_url %></p>
   <% @post.comments.each do |comment| %>
-  <ul class="list-group">
-    <li class="list-group-item"><%= comment.body %>
-    <small><% if comment.user %>
+  <ul class="list-group-item">
+
+    <strong><% if comment.user %>
             <%= comment.user.user_name %>
             <%else %>
             Anonymous User
-            <%end%>
-    </small></li>
+            <%end%></strong>
+
+    <ul><%= comment.body %></ul>
   </ul>
   <%end%>
 
   <div class="">
     <%= form_for [@post, Comment.new] do |f| %>
     <div>
-        <%= f.label :body, "New comment:" %>
-        <%= f.text_area :body %>
+        <%= f.label :body, "New comment:", class: "form-control" %>
+        <%= f.text_area :body, class: "col-sm-2 control-label", class: "form-control", placeholder: "Add a new comment here" %>
 
     </div>
 
-    <%= f.submit "Add your comment!" %>
+    <%= f.submit "Add your comment!", class: "btn btn-primary" %>
     <% end %>
+</div>
 </div>
