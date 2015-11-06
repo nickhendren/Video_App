@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :videos
   has_many :gifs
+  has_many :posts
   #attr_reader :password
 
   def password=(unencrypted_password)

@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  <% if current_user %>
+    <br><br><br><br><br><br><br><br><br><br>
+    <h2>You already have an Account</h2>
+    <h2><a href="/posts">Click here to view the posts</a></h2>
+  <% else %>
     <h1>Signing Up is Easier than ever!</h1>
     <p>Enter your information below</p>
-
-  <%= form_for(@user, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-4") do |f| %>
-    <%= f.text_field :first_name %>
-    <%= f.text_field :last_name %>
-    <%= f.email_field :email %>
-    <%= f.text_field :user_name %>
-    <%= f.password_field :password %>
-    <%= f.form_group do %>
-      <%= f.submit "Create New Account" %>
+    <%= bootstrap_form_for(@user, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-4") do |f| %>
+      <%= f.text_field :first_name %>
+      <%= f.text_field :last_name %>
+      <%= f.email_field :email %>
+      <%= f.text_field :user_name %>
+      <%= f.password_field :password %>
+      <%= f.form_group do %>
+        <%= f.submit "Create New Account" %>
+      <% end %>
     <% end %>
   <% end %>
 </html>

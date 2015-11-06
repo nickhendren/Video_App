@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to 'show'
+      redirect_to '/'
     else
       render 'new'
     end
