@@ -39,7 +39,7 @@
             <div class="form-group">
               <%= f.label :password, "Password:", class: "col-md-4 control-label" %>
               <div class="col-md-4">
-                <%= f.password_field :password, class: "form-control" %><br><%= f.submit "Update", class: "btn btn-primary"%><button type="submit" class="btn btn-danger"><%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+                <%= f.password_field :password, class: "form-control" %><br><%= f.submit "Update", class: "btn btn-default"%><button type="submit" class="btn btn-danger"><%= link_to 'Destroy', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %> </button>
               </div>
             </div>
           <% end %>
